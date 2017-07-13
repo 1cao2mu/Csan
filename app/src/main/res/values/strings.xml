@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">文字三国</string>
+    <string name="place_name_1">司隶</string>
+    <string name="place_name_2">幽州</string>
+    <string name="place_name_3">并州</string>
+    <string name="place_name_4">冀州</string>
+    <string name="place_name_5">青州</string>
+    <string name="place_name_6">兖州</string>
+    <string name="place_name_7">徐州</string>
+    <string name="place_name_8">豫州</string>
+    <string name="place_name_9">扬州</string>
+    <string name="place_name_10">凉州</string>
+    <string name="place_name_11">益州</string>
+    <string name="place_name_12">交州</string>
+    <string name="place_name_14">荆州</string>
 </resources>
