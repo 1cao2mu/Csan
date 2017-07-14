@@ -1,59 +1,32 @@
 package com.cyy.csan.bean;
 
-import android.graphics.Color;
-import android.os.Parcel;
-import android.os.Parcelable;
-
 /**
  * Created by ygg
  * on 2017/7/13.
  */
 
-public class WeightBg implements Parcelable {
-    private Color color;
-    private int num;
+public class WeightBg {
+    private int color;
+    private float num;
 
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void setColor(Color color) {
+    public WeightBg(int color, float num) {
         this.color = color;
-    }
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
         this.num = num;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getColor() {
+        return color;
     }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(num);
+    public void setColor(int color) {
+        this.color = color;
     }
 
-    private WeightBg(Parcel in) {
-        num = in.readInt();
+    public float getNum() {
+        return num;
     }
 
-    public static final Creator<WeightBg> CREATOR = new Creator<WeightBg>() {
-        @Override
-        public WeightBg createFromParcel(Parcel in) {
-            return new WeightBg(in);
-        }
-
-        @Override
-        public WeightBg[] newArray(int size) {
-            return new WeightBg[size];
-        }
-    };
+    public void setNum(float num) {
+        this.num = num;
+    }
 }

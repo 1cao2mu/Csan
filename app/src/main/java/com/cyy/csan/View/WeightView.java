@@ -2,6 +2,7 @@ package com.cyy.csan.View;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -42,5 +43,17 @@ public class WeightView extends FrameLayout {
 
             }
         });
+        ll_bg.removeAllViews();
+        weightBgs.clear();
+        weightBgs.add(new WeightBg(Color.parseColor("#ff0000"),20f));
+        weightBgs.add(new WeightBg(Color.parseColor("#00ff00"),20f));
+        weightBgs.add(new WeightBg(Color.parseColor("#0000ff"),20f));
+        ll_bg.setWeightSum(100f);
+        for (WeightBg weightBg1 : weightBgs) {
+            View view=new View(context);
+            view.setBackgroundColor(weightBg1.getColor());
+            view.setLayoutParams(new LinearLayout.LayoutParams(0,LayoutParams.MATCH_PARENT,weightBg1.getNum()));
+            ll_bg.addView(view);
+        }
     }
 }
