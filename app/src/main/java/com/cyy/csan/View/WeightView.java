@@ -18,8 +18,8 @@ import com.cyy.csan.bean.WeightBg;
 import java.util.ArrayList;
 
 /**
- * Created by ygg
- * on 2017/7/12.
+ * Created by cyy
+ * on 18-6-6下午3:32
  */
 
 public class WeightView extends FrameLayout {

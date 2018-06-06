@@ -1,8 +1,8 @@
 package com.cyy.csan.bean;
 
 /**
- * Created by ygg
- * on 2017/7/13.
+ * Created by cyy
+ * on 18-6-6下午3:32
  */
 
 public class WeightBg {
