@@ -1,4 +1,4 @@
-package com.cyy.csan.View;
+package com.cyy.csan.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,10 +1,10 @@
-package com.cyy.csan;
+package com.cyy.csan.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-import com.cyy.csan.View.StrategyMapView;
+import com.cyy.csan.R;
 import com.cyy.csan.bean.City;
+import com.cyy.csan.view.StrategyMapView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * Created by cyy
  * on 18-6-6下午3:32
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private StrategyMapView sm_map;
     private List<City> mCityList=new ArrayList<>();
     @Override

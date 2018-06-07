@@ -7,6 +7,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#dadada</item>
+        <item name="colorPrimaryDark">#dadada</item>
+        <item name="colorAccent">#dadada</item>
+        <item name="android:windowBackground">@mipmap/csan_bg</item>
+    </style>
+
+
 
     <style name="textAllCaps">
         <item name="android:textSize">@dimen/design_tab_text_size</item>
