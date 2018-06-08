@@ -11,7 +11,7 @@ import com.cyy.csan.dbtool.DataRequestUtil;
  * on 18-6-6下午3:32
  */
 public class BaseActivity extends AppCompatActivity {
-    private DataRequestUtil mDataRequestUtil;
+    protected DataRequestUtil mDataRequestUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

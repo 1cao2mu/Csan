@@ -7,7 +7,19 @@ package com.cyy.csan.bean;
 
 public class City {
     private String name;
+    private String cango;
     private float x, y;
+
+    public City() {
+    }
+
+    public String getCango() {
+        return cango;
+    }
+
+    public void setCango(String cango) {
+        this.cango = cango;
+    }
 
     public City(String name, float x, float y) {
         this.name = name;

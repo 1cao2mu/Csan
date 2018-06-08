@@ -3,7 +3,7 @@
     <color name="colorPrimary">#450202</color>
     <color name="colorPrimaryDark">#450202</color>
     <color name="colorAccent">#450202</color>
-    <color name="white">#ffffff</color> <!-- 白色 -->
+    <color name="white">#f1f1f1</color> <!-- 白色 -->
     <color name="ivory">#fffff0</color> <!-- 象牙色 -->
     <color name="lightyellow">#ffffe0</color> <!-- 亮黄色 -->
     <color name="yellow">#ffff00</color> <!-- 黄色 -->

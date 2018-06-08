@@ -75,22 +75,50 @@ public class StrategyMapView extends View {
         Log.e(TAG, "onDraw");
         float cityWidth = xValueToPx(7.5f), cityHeight = yValueToPx(7.5f);
         float textSize = yValueToPx(5);
+        float strokeWidth = 3f;
 
-        mPaint.setColor(ActivityCompat.getColor(context, R.color.colorAccent));
+
         mPaint.setAntiAlias(true);
-        mPaint.setStrokeWidth(3);
+        mPaint.setStrokeWidth(strokeWidth);
         mPaint.setTextSize(textSize);
+        mPaint.setTextAlign(Paint.Align.CENTER);
 //        canvas.drawColor(ActivityCompat.getColor(context, R.color.white));
         if (mCityList.size() > 0) {
-            for (City city : mCityList) {
+
+            for (int i = 0; i < mCityList.size(); i++) {
+                City city = mCityList.get(i);
                 float x = xValueToPx(city.getX());
                 float y = yValueToPx(city.getY());
+
+                mPaint.setColor(ActivityCompat.getColor(context, R.color.colorAccent));
                 mPaint.setStyle(Paint.Style.STROKE);
-                canvas.drawRect(x, y, x + cityWidth, y + cityHeight, mPaint);
+
+                for (int j = i; j < mCityList.size(); j++) {
+                    City cityj = mCityList.get(j);
+                    if (city.getCango().contains(cityj.getName())) {
+                        float xj = xValueToPx(cityj.getX());
+                        float yj = yValueToPx(cityj.getY());
+                        canvas.drawLine(x+ cityWidth / 2, y+ cityHeight / 2, xj + cityWidth / 2, yj + cityHeight / 2, mPaint);//画线
+                    }
+                }
+
+
+                mPaint.setColor(ActivityCompat.getColor(context, R.color.white));
                 mPaint.setStyle(Paint.Style.FILL);
-                mPaint.setTextAlign(Paint.Align.CENTER);
-                canvas.drawText(city.getName(), x + cityWidth / 2, y + cityHeight * 3 / 4, mPaint);
+                canvas.drawRect(x, y, x + cityWidth, y + cityHeight, mPaint);//画边框背景
+
+                mPaint.setColor(ActivityCompat.getColor(context, R.color.colorAccent));
+                mPaint.setStyle(Paint.Style.STROKE);
+                canvas.drawRect(x, y, x + cityWidth, y + cityHeight, mPaint);//画边框
+
+                mPaint.setColor(ActivityCompat.getColor(context, R.color.colorAccent));
+                mPaint.setStyle(Paint.Style.FILL);
+                canvas.drawText(city.getName(), x + cityWidth / 2, y + cityHeight * 3 / 4, mPaint);//画字
+
+
             }
+
+
         }
     }
 
