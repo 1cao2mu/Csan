@@ -6,11 +6,29 @@ package com.cyy.csan.bean;
  */
 
 public class City {
+    private int bid;
+    private int mid;
     private String name;
     private String cango;
     private float x, y;
 
     public City() {
+    }
+
+    public int getBid() {
+        return bid;
+    }
+
+    public void setBid(int bid) {
+        this.bid = bid;
+    }
+
+    public int getMid() {
+        return mid;
+    }
+
+    public void setMid(int mid) {
+        this.mid = mid;
     }
 
     public String getCango() {

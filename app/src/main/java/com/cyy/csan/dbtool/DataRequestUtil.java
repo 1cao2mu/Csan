@@ -25,12 +25,32 @@ public class DataRequestUtil {
         return new MySQLiteHelper(context).getReadableDatabase();
     }
 
-    public List<City> getCityData() {
+    public List<City> getBigCityData() {
         List<City> list = new ArrayList<>();
         SQLiteDatabase db = getDB();
-        Cursor cursor = db.query("city", null, null, null, null, null, "id desc");
+        Cursor cursor = db.query("bigcity", null, null, null, null, null, "bid desc");
         while (cursor.moveToNext()) {
             City city = new City();
+            city.setBid(cursor.getInt(cursor.getColumnIndex("bid")));
+            city.setName(cursor.getString(cursor.getColumnIndex("name")));
+            city.setX(cursor.getFloat(cursor.getColumnIndex("x")));
+            city.setY(cursor.getFloat(cursor.getColumnIndex("y")));
+            city.setCango(cursor.getString(cursor.getColumnIndex("cango")));
+            list.add(city);
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public List<City> getMediumCityData(int bid) {
+        List<City> list = new ArrayList<>();
+        SQLiteDatabase db = getDB();
+        Cursor cursor = db.query("mediumcity", null, "bid=?", new String[]{String.valueOf(bid)}, null, null, "mid desc");
+        while (cursor.moveToNext()) {
+            City city = new City();
+            city.setBid(cursor.getInt(cursor.getColumnIndex("bid")));
+            city.setMid(cursor.getInt(cursor.getColumnIndex("mid")));
             city.setName(cursor.getString(cursor.getColumnIndex("name")));
             city.setX(cursor.getFloat(cursor.getColumnIndex("x")));
             city.setY(cursor.getFloat(cursor.getColumnIndex("y")));
