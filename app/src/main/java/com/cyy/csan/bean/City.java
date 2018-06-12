@@ -6,13 +6,26 @@ package com.cyy.csan.bean;
  */
 
 public class City {
-    private int bid;
-    private int mid;
+    private int bid = -1;
+    private int mid = -1;
+    private int realbid = -1;
     private String name;
     private String cango;
     private float x, y;
 
     public City() {
+    }
+
+    public int getRealbid() {
+        return realbid;
+    }
+
+    public boolean isReal() {
+        return realbid == bid;
+    }
+
+    public void setRealbid(int realbid) {
+        this.realbid = realbid;
     }
 
     public int getBid() {

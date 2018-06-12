@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity implements OnClickCityListener {
 
     private void initView() {
         mCityList = mDataRequestUtil.getBigCityData();
-        sm_map = findViewById(R.id.sm_map);
+        sm_map = (StrategyMapView)findViewById(R.id.sm_map);
         sm_map.setCityList(mCityList);
         sm_map.setOnClickCityListener(this);
     }

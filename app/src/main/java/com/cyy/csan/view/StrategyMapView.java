@@ -26,11 +26,12 @@ public class StrategyMapView extends View {
     private List<City> mCityList = new ArrayList<>();
     private Paint mPaint;
     private Context context;
-    private int mWidth, mHeight;
+    private int mWidth, mHeight, heightSize, widthSize;
     private boolean ismedium = false;
     private String TAG = "StrategyMapView";
     private OnClickCityListener onClickCityListener;
     private float cityWidth, cityHeight;
+    private float lastX, lastY;
 
     public StrategyMapView(Context context) {
         super(context);
@@ -81,11 +82,14 @@ public class StrategyMapView extends View {
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         if (widthMode == MeasureSpec.EXACTLY) {
             mWidth = widthSize;
+            this.widthSize = widthSize;
         } else if (widthMode == MeasureSpec.AT_MOST) {
             throw new IllegalArgumentException("width must be EXACTLY,you should set like android:width=\"200dp\"");
         }
         if (heightMode == MeasureSpec.EXACTLY) {
             mHeight = heightSize;
+            this.heightSize = heightSize;
+
         } else if (widthMeasureSpec == MeasureSpec.AT_MOST) {
             throw new IllegalArgumentException("height must be EXACTLY,you should set like android:height=\"200dp\"");
         }
@@ -100,14 +104,14 @@ public class StrategyMapView extends View {
     protected void onDraw(Canvas canvas) {
         Log.e(TAG, "onDraw");
         float textSize = yValueToPx(5);
-        float strokeWidth = 3f;
+        float strokeWidth = 3;
         cityWidth = ismedium ? textSize * 3.1f : xValueToPx(7.5f);
-        cityHeight = yValueToPx(7.5f);
+        cityHeight = ismedium ? textSize * 1.2f : yValueToPx(7.5f);
         mPaint.setAntiAlias(true);
         mPaint.setStrokeWidth(strokeWidth);
         mPaint.setTextSize(textSize);
         mPaint.setTextAlign(Paint.Align.CENTER);
-//        canvas.drawColor(ActivityCompat.getColor(context, R.color.white));
+        canvas.drawColor(ActivityCompat.getColor(context, R.color.blue));
         if (mCityList.size() > 0) {
 
             for (int i = 0; i < mCityList.size(); i++) {
@@ -120,7 +124,7 @@ public class StrategyMapView extends View {
 
                 for (int j = i; j < mCityList.size(); j++) {
                     City cityj = mCityList.get(j);
-                    if (city.getCango().contains(cityj.getName())) {
+                    if (city.getCango().contains("," + cityj.getName() + ",")) {
                         float xj = xValueToPx(cityj.getX());
                         float yj = yValueToPx(cityj.getY());
                         canvas.drawLine(x, y, xj, yj, mPaint);//画线
@@ -135,7 +139,13 @@ public class StrategyMapView extends View {
                 mPaint.setStyle(Paint.Style.STROKE);
                 canvas.drawRect(x - cityWidth / 2, y - cityHeight / 2, x + cityWidth / 2, y + cityHeight / 2, mPaint);//画边框
 
-                mPaint.setColor(ActivityCompat.getColor(context, R.color.colorAccent));
+                if (city.isReal()) {
+                    mPaint.setColor(ActivityCompat.getColor(context, R.color.blue));
+                } else {
+                    mPaint.setColor(ActivityCompat.getColor(context, R.color.colorAccent));
+
+                }
+
                 mPaint.setStyle(Paint.Style.FILL);
                 canvas.drawText(city.getName(), x, y + cityHeight * 1 / 4, mPaint);//画字
 
@@ -146,10 +156,14 @@ public class StrategyMapView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
+        float ex = event.getX();
+        float ey = event.getY();
+        switch (event.getAction() & MotionEvent.ACTION_MASK) {
+            case MotionEvent.ACTION_DOWN:
+//                lastX = event.getX();
+//                lastY = event.getY();
+                break;
             case MotionEvent.ACTION_UP:
-                float ex = event.getX();
-                float ey = event.getY();
                 for (City city : mCityList) {
                     float cxs = xValueToPx(city.getX()) - cityWidth / 2;
                     float cxb = xValueToPx(city.getX()) + cityWidth / 2;
@@ -159,7 +173,31 @@ public class StrategyMapView extends View {
                         onClickCityListener.onClickCityListener(city);
                     }
                 }
-                return true;
+                break;
+            case MotionEvent.ACTION_MOVE:
+//                float dx = ex - lastX;
+//                float dy = ey - lastY;
+//                float left, top, right, bottom;
+//                left = getLeft() + dx;
+//                top = getTop() + dy;
+//                right = left + mWidth;
+//                bottom = top + mHeight;
+//                if (dx > 0) {//view向右
+//                    left = left < 0 ? left : 0;
+//                    right = left + mWidth;
+//                } else {
+//                    right = right < widthSize ? widthSize : right;
+//                    left = right - mWidth;
+//                }
+//                if (dy > 0) {//view向上
+//                    top = top < 0 ? top : 0;
+//                    bottom = top + mHeight;
+//                } else {
+//                    bottom = bottom < heightSize ? heightSize : bottom;
+//                    top = bottom - mHeight;
+//                }
+//                layout((int) left, (int) top, (int) right, (int) bottom);
+                break;
         }
         return true;
     }
