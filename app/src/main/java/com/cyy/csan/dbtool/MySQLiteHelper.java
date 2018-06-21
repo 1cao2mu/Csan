@@ -144,39 +144,30 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL("insert into mediumcity values (83,10,'酒泉郡',32,28,',张掖属,敦煌郡,张掖郡,',10)");
         db.execSQL("insert into mediumcity values (84,10,'敦煌郡',16,28,',张掖属,酒泉郡,',10)");
 
-        db.execSQL(sqlinsert + "(10,'上郡',12.5,75,',北地郡,',7)");
+        //汉中郡，巴郡，广汉郡，广汉属，蜀郡，蜀郡属，犍为郡，犍为属，牂牁郡，越巂郡，益州郡，永昌郡
+        db.execSQL("insert into bigcity values (11,'益州',19,69,',凉州,司隶,荆州,交州,')");
+        db.execSQL("insert into mediumcity values (85,11,'汉中郡',75,18,',广汉郡,巴郡,',11)");
+        db.execSQL("insert into mediumcity values (86,11,'巴郡',75,36,',汉中郡,广汉郡,犍为郡,',11)");
+        db.execSQL("insert into mediumcity values (87,11,'广汉郡',50,36,',广汉属,巴郡,汉中郡,蜀郡,犍为郡,',11)");
+        db.execSQL("insert into mediumcity values (88,11,'广汉属',37.5,18,',蜀郡,广汉郡,',11)");
+        db.execSQL("insert into mediumcity values (89,11,'蜀郡',25,36,',广汉郡,广汉属,蜀郡属,犍为郡,',11)");
+        db.execSQL("insert into mediumcity values (90,11,'蜀郡属',25,50,',蜀郡,犍为郡,越巂郡,',11)");
+        db.execSQL("insert into mediumcity values (91,11,'犍为郡',50,50,',巴郡,广汉郡,蜀郡,蜀郡属,犍为属,牂牁郡,越巂郡,',11)");
+        db.execSQL("insert into mediumcity values (92,11,'犍为属',50,66,',犍为郡,越巂郡,益州郡,牂牁郡,',11)");
+        db.execSQL("insert into mediumcity values (93,11,'牂牁郡',75,66,',犍为郡,犍为属,益州郡,永昌郡,',11)");
+        db.execSQL("insert into mediumcity values (94,11,'越巂郡',25,66,',犍为郡,犍为属,蜀郡属,益州郡,永昌郡,',11)");
+        db.execSQL("insert into mediumcity values (95,11,'益州郡',37.5,75,',犍为属,牂牁郡,越巂郡,永昌郡,',11)");
+        db.execSQL("insert into mediumcity values (96,11,'永昌郡',25,84,',越巂郡,益州郡,牂牁郡,',11)");
 
-        db.execSQL(sqlinsert + "(10,'右扶风',12.5,75,',武都郡,汉阳郡,安定郡,北地郡,',0)");
-        db.execSQL(sqlinsert + "(10,'左冯翊',12.5,75,',北地郡,',0)");
-
-        db.execSQL(sqlinsert + "(0,'武都郡',10,80,',右扶风,',10)");
-
-//
-//        //汉中郡，巴郡，广汉郡，广汉属，蜀郡，蜀郡属，犍为郡，犍为属，牂牁郡，越巂郡，益州郡，永昌郡
-//        db.execSQL("insert into bigcity values (11,'益州',19,69,',凉州,司隶,荆州,交州,')");
-//        db.execSQL("insert into mediumcity values (85,11,'汉中郡',75,18,',广汉郡,巴郡,',11)");
-//        db.execSQL("insert into mediumcity values (86,11,'巴郡',75,36,',汉中郡,广汉郡,犍为郡,',11)");
-//        db.execSQL("insert into mediumcity values (87,11,'广汉郡',50,36,',广汉属,巴郡,汉中郡,蜀郡,犍为郡,',11)");
-//        db.execSQL("insert into mediumcity values (88,11,'广汉属',37.5,18,',蜀郡,广汉郡,',11)");
-//        db.execSQL("insert into mediumcity values (89,11,'蜀郡',25,36,',广汉郡,广汉属,蜀郡属,犍为郡,',11)");
-//        db.execSQL("insert into mediumcity values (90,11,'蜀郡属',25,50,',蜀郡,犍为郡,越巂郡,',11)");
-//        db.execSQL("insert into mediumcity values (91,11,'犍为郡',50,50,',巴郡,广汉郡,蜀郡,蜀郡属,犍为属,牂牁郡,越巂郡,',11)");
-//        db.execSQL("insert into mediumcity values (92,11,'犍为属',50,66,',犍为郡,越巂郡,益州郡,牂牁郡,',11)");
-//        db.execSQL("insert into mediumcity values (93,11,'牂牁郡',75,66,',犍为郡,犍为属,益州郡,永昌郡,',11)");
-//        db.execSQL("insert into mediumcity values (94,11,'越巂郡',25,66,',犍为郡,犍为属,蜀郡属,益州郡,永昌郡,',11)");
-//        db.execSQL("insert into mediumcity values (95,11,'益州郡',37.5,75,',犍为属,牂牁郡,越巂郡,永昌郡,',11)");
-//        db.execSQL("insert into mediumcity values (96,11,'永昌郡',25,84,',越巂郡,益州郡,牂牁郡,',11)");
-//
-//        //南海郡，郁林郡，苍梧郡，合浦郡，交趾郡，九真郡,日南郡
-//        db.execSQL("insert into bigcity values (12,'交州',61.5,84,',荆州,扬州,益州,')");
-//        db.execSQL("insert into mediumcity values (97,12,'南海郡',80,20,',苍梧郡,合浦郡,')");
-//        db.execSQL("insert into mediumcity values (98,12,'郁林郡',40,20,',交趾郡,合浦郡,苍梧郡,',12)");
-//        db.execSQL("insert into mediumcity values (99,12,'苍梧郡',60,20,',南海郡,郁林郡,合浦郡,',12)");
-//        db.execSQL("insert into mediumcity values (100,12,'合浦郡',50,40,',交趾郡,苍梧郡,郁林郡,南海郡,',12)");
-//        db.execSQL("insert into mediumcity values (101,12,'交趾郡',20,40,',郁林郡,合浦郡,九真郡,',12)");
-//        db.execSQL("insert into mediumcity values (102,12,'九真郡',20,60,',交趾郡,日南郡,',12)");
-//        db.execSQL("insert into mediumcity values (103,12,'日南郡',20,80,',九真郡,',12)");
-
+        //南海郡，郁林郡，苍梧郡，合浦郡，交趾郡，九真郡,日南郡
+        db.execSQL("insert into bigcity values (12,'交州',61.5,84,',荆州,扬州,益州,')");
+        db.execSQL("insert into mediumcity values (97,12,'南海郡',80,20,',苍梧郡,合浦郡,',12)");
+        db.execSQL("insert into mediumcity values (98,12,'郁林郡',40,20,',交趾郡,合浦郡,苍梧郡,',12)");
+        db.execSQL("insert into mediumcity values (99,12,'苍梧郡',60,20,',南海郡,郁林郡,合浦郡,',12)");
+        db.execSQL("insert into mediumcity values (100,12,'合浦郡',50,40,',交趾郡,苍梧郡,郁林郡,南海郡,',12)");
+        db.execSQL("insert into mediumcity values (101,12,'交趾郡',20,40,',郁林郡,合浦郡,九真郡,',12)");
+        db.execSQL("insert into mediumcity values (102,12,'九真郡',20,60,',交趾郡,日南郡,',12)");
+        db.execSQL("insert into mediumcity values (103,12,'日南郡',20,80,',九真郡,',12)");
 
         //司隶外
         db.execSQL(sqlinsert + "(0,'武都郡',10,80,',右扶风,',10)");
@@ -292,7 +283,28 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(sqlinsert + "(9,'汝南郡 ',25,10,',九江郡,庐江郡,',4)");
         db.execSQL(sqlinsert + "(9,'沛国',37.5,10,',九江郡,',4)");
 
+        db.execSQL(sqlinsert + "(10,'上郡',93,42,',北地郡,',7)");
+        db.execSQL(sqlinsert + "(10,'右扶风',86,70,',武都郡,汉阳郡,安定郡,北地郡,',0)");
+        db.execSQL(sqlinsert + "(10,'左冯翊',92,56,',北地郡,',0)");
+        db.execSQL(sqlinsert + "(10,'汉中郡',78,94,',武都郡,',11)");
+        db.execSQL(sqlinsert + "(10,'广汉属',58,94,',武都郡,',11)");
+        db.execSQL(sqlinsert + "(10,'广汉郡',68,94,',武都郡,',11)");
 
+        db.execSQL(sqlinsert + "(11,'武都郡',50,9,',汉中郡,广汉属,广汉郡,',10)");
+        db.execSQL(sqlinsert + "(11,'右扶风',65,9,',汉中郡,',0)");
+        db.execSQL(sqlinsert + "(11,'京兆尹',88,9,',汉中郡,',0)");
+        db.execSQL(sqlinsert + "(11,'南阳郡',88,35,',汉中郡,',8)");
+        db.execSQL(sqlinsert + "(11,'南郡',88,45,',汉中郡,巴郡,',8)");
+        db.execSQL(sqlinsert + "(11,'武陵郡',88,60,',犍为郡,巴郡,牂牁郡,',8)");
+        db.execSQL(sqlinsert + "(11,'郁林郡',80,85,',牂牁郡,',12)");
+        db.execSQL(sqlinsert + "(11,'交趾郡',64,85,',牂牁郡,',12)");
+
+        db.execSQL(sqlinsert + "(12,'武陵郡',28,10,',郁林郡,',8)");
+        db.execSQL(sqlinsert + "(12,'零陵郡',42,10,',苍梧郡,',8)");
+        db.execSQL(sqlinsert + "(12,'桂阳郡',56,10,',南海郡,',8)");
+        db.execSQL(sqlinsert + "(12,'豫章郡',70,10,',南海郡,',9)");
+        db.execSQL(sqlinsert + "(12,'会稽郡',85,10,',南海郡,',9)");
+        db.execSQL(sqlinsert + "(12,'牂牁郡',14,10,',郁林郡,交趾郡,',11)");
     }
 
 
