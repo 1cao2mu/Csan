@@ -147,7 +147,8 @@ public class StrategyMapView extends View {
                 }
 
                 mPaint.setStyle(Paint.Style.FILL);
-                canvas.drawText(city.getName(), x, y + cityHeight * 1 / 4, mPaint);//画字
+                float bei = isIsmedium() ? 7f / 24f : 1f / 4f;
+                canvas.drawText(city.getName(), x, y + cityHeight * bei, mPaint);//画字
 
             }
 
