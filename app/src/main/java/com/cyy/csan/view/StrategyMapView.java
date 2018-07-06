@@ -12,13 +12,14 @@ import android.view.View;
 
 import com.cyy.csan.R;
 import com.cyy.csan.bean.City;
-import com.cyy.csan.listener.OnClickCityListener;
+import com.cyy.csan.listener.OnClickBeanListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
+ * 战略地图
  * Created by cyy
  * on 18-6-6.
  */
@@ -29,7 +30,7 @@ public class StrategyMapView extends View {
     private int mWidth, mHeight, heightSize, widthSize;
     private boolean ismedium = false;
     private String TAG = "StrategyMapView";
-    private OnClickCityListener onClickCityListener;
+    private OnClickBeanListener mOnClickBeanListener;
     private float cityWidth, cityHeight;
     private float lastX, lastY;
 
@@ -49,8 +50,8 @@ public class StrategyMapView extends View {
         this.context = context;
     }
 
-    public void setOnClickCityListener(OnClickCityListener onClickCityListener) {
-        this.onClickCityListener = onClickCityListener;
+    public void setOnClickBeanListener(OnClickBeanListener onClickBeanListener) {
+        this.mOnClickBeanListener = onClickBeanListener;
     }
 
     public boolean isIsmedium() {
@@ -147,8 +148,9 @@ public class StrategyMapView extends View {
                 }
 
                 mPaint.setStyle(Paint.Style.FILL);
-                float bei = isIsmedium() ? 7f / 24f : 1f / 4f;
-                canvas.drawText(city.getName(), x, y + cityHeight * bei, mPaint);//画字
+                Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
+                float offset = fontMetrics.top/2+fontMetrics.bottom/2;
+                canvas.drawText(city.getName(), x, y - offset , mPaint);//画字
 
             }
 
@@ -171,7 +173,7 @@ public class StrategyMapView extends View {
                     float cys = yValueToPx(city.getY()) - cityHeight / 2;
                     float cyb = yValueToPx(city.getY()) + cityHeight / 2;
                     if (ex > cxs && ex < cxb && ey > cys && ey < cyb) {
-                        onClickCityListener.onClickCityListener(city);
+                        mOnClickBeanListener.onClickBeanListener(city);
                     }
                 }
                 break;

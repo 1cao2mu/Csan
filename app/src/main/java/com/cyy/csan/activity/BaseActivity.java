@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.cyy.csan.dbtool.DataRequestUtil;
 
 /**
+ * 基础界面
  * Created by cyy
  * on 18-6-6下午3:32
  */

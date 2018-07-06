@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * 建一个SQLite帮助类
+ * SQLite帮助类
  */
 public class MySQLiteHelper extends SQLiteOpenHelper {
     //数据库的名称

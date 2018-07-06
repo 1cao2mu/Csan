@@ -1,11 +1,12 @@
 package com.cyy.csan.bean;
 
 /**
+ * 城市类
  * Created by cyy
  * on 18-6-6下午3:32
  */
 
-public class City {
+public class City extends Bean {
     private int bid = -1;
     private int mid = -1;
     private int realbid = -1;

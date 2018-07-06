@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 数据获取类
  * Created by cyy
  * on 18-6-7.
  */
