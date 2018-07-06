@@ -112,7 +112,7 @@ public class StrategyMapView extends View {
         mPaint.setStrokeWidth(strokeWidth);
         mPaint.setTextSize(textSize);
         mPaint.setTextAlign(Paint.Align.CENTER);
-        canvas.drawColor(ActivityCompat.getColor(context, R.color.blue));
+        canvas.drawColor(ActivityCompat.getColor(context, R.color.colorAccent88));
         if (mCityList.size() > 0) {
 
             for (int i = 0; i < mCityList.size(); i++) {
