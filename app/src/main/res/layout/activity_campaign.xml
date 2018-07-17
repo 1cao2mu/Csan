@@ -4,15 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="50dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginRight="1dp"
     android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp"
+    android:orientation="vertical"
     tools:context=".activity.CampaignActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <Button
+            android:id="@+id/bt_ing"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="续"/>
+
+    </LinearLayout>
 
     <com.cyy.csan.view.CampaignMapView
         android:id="@+id/cm_map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="待"/>
+
+    </LinearLayout>
 
 </LinearLayout>

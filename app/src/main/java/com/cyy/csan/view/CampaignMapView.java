@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.util.AttributeSet;
@@ -34,9 +35,54 @@ public class CampaignMapView extends View {
     private int mWidth, mHeight;
     private String TAG = "CampaignMapView";
     private OnClickBeanListener mOnClickBeanListener;
+    private boolean isIng = false;
+    private int delayMillis = 1500;
+    private int[] range = {5, 6, 4, 7, 3, 8, 2, 9, 1, 10};
 
+    Handler handler = new Handler();
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            ArrayList<MiddleArmy> middleArmylist1 = selfBigArmy.getMiddleArmyArrayList();
+            for (int i = 0; i < middleArmylist1.size(); i++) {
+                MiddleArmy middleArmy1 = middleArmylist1.get(i);
+                middleArmy1.setX(middleArmy1.getX() + 1);
+            }
+            ArrayList<MiddleArmy> middleArmylist2 = otherBigArmy.getMiddleArmyArrayList();
+            for (int i = 0; i < middleArmylist2.size(); i++) {
+                MiddleArmy middleArmy1 = middleArmylist2.get(i);
+                middleArmy1.setX(middleArmy1.getX() - 1);
+            }
+            invalidate();
+            handler.postDelayed(this, delayMillis);
+        }
+    };
+
+
+    public boolean isIng() {
+        return isIng;
+    }
+
+    public void setIng(boolean ing) {
+        isIng = ing;
+        if (isIng) {
+            handler.postDelayed(runnable, delayMillis);
+        } else {
+            handler.removeCallbacks(runnable);
+        }
+    }
 
     public void setArmy(BigArmy selfBigArmy, BigArmy otherBigArmy) {
+        ArrayList<MiddleArmy> middleArmylist1= selfBigArmy.getMiddleArmyArrayList();
+        for (int i = 0; i < middleArmylist1.size(); i++) {
+            MiddleArmy middleArmy = middleArmylist1.get(i);
+            middleArmy.setXY(1,range[i]);
+        }
+        ArrayList<MiddleArmy> middleArmylist2= otherBigArmy.getMiddleArmyArrayList();
+        for (int i = 0; i < middleArmylist2.size(); i++) {
+            MiddleArmy middleArmy = middleArmylist2.get(i);
+            middleArmy.setXY(10,range[i]);
+        }
         this.selfBigArmy = selfBigArmy;
         this.otherBigArmy = otherBigArmy;
         invalidate();
@@ -98,11 +144,18 @@ public class CampaignMapView extends View {
         }
         ArrayList<MiddleArmy> selfMiddleArmyArrayList = selfBigArmy.getMiddleArmyArrayList();
         for (MiddleArmy middleArmy : selfMiddleArmyArrayList) {
-            drawGeneral(1, 5, middleArmy.getGeneral(), canvas, true);
+//            if (middleArmy.getX() == -1) {
+//                middleArmy.setXY(1, 5);
+//            }
+            drawGeneral(middleArmy.getX(), middleArmy.getY(), middleArmy.getGeneral(), canvas, true);
+
         }
         ArrayList<MiddleArmy> otherMiddleArmyArrayList = otherBigArmy.getMiddleArmyArrayList();
         for (MiddleArmy middleArmy : otherMiddleArmyArrayList) {
-            drawGeneral(10, 5, middleArmy.getGeneral(), canvas, false);
+//            if (middleArmy.getX() == -1) {
+//                middleArmy.setXY(10, 5);
+//            }
+            drawGeneral(middleArmy.getX(), middleArmy.getY(), middleArmy.getGeneral(), canvas, false);
         }
 
     }
@@ -115,18 +168,16 @@ public class CampaignMapView extends View {
             mPaint.setColor(ActivityCompat.getColor(context, R.color.red));
         }
         mPaint.setStyle(Paint.Style.FILL);
-        float fx=xValueToPx((x - 0.5f) * 10f);
-        float fy=yValueToPx((y - 0.5f) * 10f);
-        float fheight=yValueToPx(10f);
-        float fwidth=xValueToPx(10f);
+        float fx = xValueToPx((x - 0.5f) * 10f);
+        float fy = yValueToPx((y - 0.5f) * 10f);
+        float fheight = yValueToPx(10f);
+        float fwidth = xValueToPx(10f);
         canvas.drawRect(fx - fwidth / 2, fy - fheight / 2, fx + fwidth / 2, fy + fheight / 2, mPaint);
 
         mPaint.setColor(ActivityCompat.getColor(context, R.color.white));
         Paint.FontMetrics fontMetrics = mPaint.getFontMetrics();
         float offset = fontMetrics.top / 2 + fontMetrics.bottom / 2;
-        canvas.drawText(general.getName(),fx , fy - offset, mPaint);
-
-
+        canvas.drawText(general.getName(), fx, fy - offset, mPaint);
     }
 
     @Override

@@ -30,7 +30,7 @@ public class SmallArmy extends Army {
 
     public int getSaid() {
         return said;
-    }
+}
 
     public void setSaid(int said) {
         this.said = said;

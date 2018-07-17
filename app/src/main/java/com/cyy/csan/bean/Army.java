@@ -6,6 +6,7 @@ package com.cyy.csan.bean;
  * on 18-7-5.
  */
 public class Army extends Bean {
+    public int x=-1, y=-1;
     public General mGeneral;
     public int number;
 
@@ -15,6 +16,27 @@ public class Army extends Bean {
 
     public General getGeneral() {
         return mGeneral;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 
     public void setGeneral(General general) {
