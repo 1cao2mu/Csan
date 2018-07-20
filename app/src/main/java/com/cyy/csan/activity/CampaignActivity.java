@@ -54,6 +54,7 @@ public class CampaignActivity extends BaseActivity implements View.OnClickListen
         cmMap.setArmy(selfBigArmy, otherBigArmy);
         btIng = (Button) findViewById(R.id.bt_ing);
         btIng.setOnClickListener(this);
+        btIng.setText(isIng?"暂停":"继续");
     }
 
     @Override
@@ -62,7 +63,7 @@ public class CampaignActivity extends BaseActivity implements View.OnClickListen
         switch (v.getId()) {
             case R.id.bt_ing:
                 isIng = !isIng;
-                btIng.setText(isIng?"停":"续");
+                btIng.setText(isIng?"暂停":"继续");
                 cmMap.setIng(isIng);
                 break;
         }

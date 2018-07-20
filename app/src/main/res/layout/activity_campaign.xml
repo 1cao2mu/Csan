@@ -14,9 +14,9 @@
 
         <Button
             android:id="@+id/bt_ing"
-            android:layout_width="40dp"
+            android:layout_width="60dp"
             android:layout_height="40dp"
-            android:text="续"/>
+            android:text="继续"/>
 
     </LinearLayout>
 

@@ -52,8 +52,8 @@ public class CampaignMapView extends View {
             for (int i = 0; i < middleArmylist2.size(); i++) {
                 MiddleArmy middleArmy1 = middleArmylist2.get(i);
                 middleArmy1.setX(middleArmy1.getX() - 1);
+                invalidate();
             }
-            invalidate();
             handler.postDelayed(this, delayMillis);
         }
     };
